@@ -1,1 +1,2 @@
 # ContactCatalogue
+Jag har skrivit hela koden och upplevt ett problem med test biten av koden. Både using Xunit; and using Moq; någonting gick fel så att den inte vill funkar. Hade pratat med Github Copilot och ChatGPT och både hade bara ledat mig i cirklar för de kunde inte förstår vad problemet var eftersom både nuget package manager var uppdaterat och project reference var uppdaterat. Både AI sa att koden såg bra ut och den skulle funkar men det gick bara inte. Jag har kommenterat ut koden för testerna men resterande kod funkar felfritt. 
