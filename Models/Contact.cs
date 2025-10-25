@@ -4,23 +4,21 @@ using System.Linq;
 
 namespace ContactCatalogue.Models
 {
-    /// <summary>
-    /// Represents a single contact in the catalog.
-    /// </summary>
     public class Contact
     {
-        public int Id { get; private set; }
-        public string Name { get; private set; }
-        public string Email { get; private set; }
-        public List<string> Tags { get; private set; }
+        public int Id { get; set; }
+        public string Name { get; set; } = string.Empty;
+        public string Email { get; set; } = string.Empty;
+        public List<string> Tags { get; set; } = new List<string>();
+
+        public Contact() { }
 
         public Contact(int id, string name, string email, IEnumerable<string> tags)
         {
             Id = id;
             Name = name;
             Email = email;
-            Tags = tags.ToList();
-            // TODO: Add any validation logic if needed
+            Tags = new List<string>(tags);
         }
 
         public override string ToString()

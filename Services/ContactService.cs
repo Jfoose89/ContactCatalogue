@@ -6,10 +6,7 @@ using ContactCatalogue.Interfaces;
 
 namespace ContactCatalogue.Services
 {
-    /// <summary>
-    /// Provides search and filter functionality for contacts.
-    /// </summary>
-    public class ContactService : IContactService
+    public class ContactService
     {
         private readonly IContactRepository repository;
 
@@ -20,14 +17,16 @@ namespace ContactCatalogue.Services
 
         public IEnumerable<Contact> SearchByName(string searchTerm)
         {
-            // TODO: Implement LINQ search by Name
-            return Enumerable.Empty<Contact>();
+            return repository.GetAll()
+                .Where(c => c.Name.Contains(searchTerm, StringComparison.OrdinalIgnoreCase))
+                .OrderBy(c => c.Name);
         }
-
         public IEnumerable<Contact> FilterByTag(string tag)
         {
-            // TODO: Implement LINQ filter by Tag
-            return Enumerable.Empty<Contact>();
+            return repository.GetAll()
+                .Where(c => c.Tags.Any(t => t.Equals(tag, StringComparison.OrdinalIgnoreCase)))
+                .OrderBy(c => c.Name);
         }
+
     }
 }
